@@ -1,4 +1,21 @@
 .home-menu-items {
-    margin-left: 1400px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-left: 1300px;
+    font-family: "Alumni Sans SC", sans-serif;
+    font-size: 35px;
+}
+
+* {
+    background-color: rgb(255, 90, 95);
+}
+
+h1 {
+    font-family: "Alumni Sans SC", sans-serif;
+    font-size: 75px;
+}
+p{
+    font-family: "DM Sans", sans-serif;
+}
+.chat{
+    font-size:50px;
+    font-family: "Alumni Sans SC", sans-serif;
 }
