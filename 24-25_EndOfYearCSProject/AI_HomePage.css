@@ -1,7 +1,9 @@
-.home-menu-items {
-    margin-left: 1300px;
+button {
+    margin-left: 150px;
+    border-radius: 30px;
     font-family: "Alumni Sans SC", sans-serif;
     font-size: 35px;
+    background-color: white;
 }
 
 * {
