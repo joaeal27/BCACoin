@@ -10,12 +10,19 @@
 
 h1 {
     font-family: "Alumni Sans SC", sans-serif;
-    font-size: 75px;
+    font-size: 4.688rem;
 }
 p{
     font-family: "DM Sans", sans-serif;
+    font-size: 1.875rem;
 }
 .chat{
-    font-size:50px;
+    font-size: 3.125rem;
     font-family: "Alumni Sans SC", sans-serif;
 }
+.logo {
+    position: relative;
+    right: 500px;
+    bottom:600px;
+}
+
