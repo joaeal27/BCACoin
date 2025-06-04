@@ -21,6 +21,23 @@
     <input type="text" name="age" id="age">
     <label for="intersts">In three words, separated by commas, write your 3 greatest interests.</label>
     <textarea name="interests" id="interests" cols="30" rows="10"></textarea>
-    <input type="submit">    
+    <input type="submit">
+    
+    <script>
+    document.querySelector("input[type='submit']").addEventListener("click", async () => {
+    const name = document.getElementById("name").value;
+    const age = document.getElementById("age").value;
+    const interests = document.getElementById("interests").value;
+
+    const response = await fetch("http://localhost:5000/add_user", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, age, interests })
+    });
+
+    const result = await response.json();
+    alert(result.message);
+});
+</script>
 </body>
 </html>
