@@ -1,4 +1,30 @@
-.home-menu-items {
-    margin-left: 1400px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+button {
+    margin-left: 150px;
+    border-radius: 30px;
+    font-family: "Alumni Sans SC", sans-serif;
+    font-size: 35px;
+    background-color: white;
 }
+
+* {
+    background-color: rgb(255, 90, 95);
+}
+
+h1 {
+    font-family: "Alumni Sans SC", sans-serif;
+    font-size: 4.688rem;
+}
+p{
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.875rem;
+}
+.chat{
+    font-size: 3.125rem;
+    font-family: "Alumni Sans SC", sans-serif;
+}
+.logo {
+    position: relative;
+    right: 500px;
+    bottom:600px;
+}
+
