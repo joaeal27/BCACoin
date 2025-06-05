@@ -23,9 +23,9 @@ label {
     font-family: "DM Sans", sans-serif;
 }
 .logo {
-    position: fixed;
-    right: 1600px;
-    bottom: 850px;
+    position: relative;
+    right: 1300px;
+    bottom: 350px;
 }
 .name{
     background-color: white;
