@@ -6,9 +6,9 @@ app = Flask(__name__)
 CORS(app)  # Allows our HTML frontend to access this API
 
 # MongoDB connection 
-client = MongoClient("mongodb+srv://<username>:<password>@<cluster-url>/test?retryWrites=true&w=majority") < #Replace with our MongoDB info
+client = MongoClient("mongodb%2Bsrv%3A%2F%2Fryanarumemi08%3Aendofyear2025%40cluster0.hrlavhw.mongodb.net%2F%3FretryWrites%3Dtrue%26w%3Dmajority%26appName%3DCluster0")
 db = client["friend_matcher"]
-collection = db[""] < #Replace with our collection name
+collection = db["users"] 
 
 @app.route("/add_user", methods=["POST"])
 def add_user():
@@ -23,4 +23,4 @@ def add_user():
     return jsonify({"message": "User added successfully"}), 200
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)

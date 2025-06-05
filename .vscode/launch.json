@@ -1,0 +1,25 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run server.py",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/server.py",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Run AI.py",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/AI.py",
+      "console": "integratedTerminal"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Run Both Server and AI",
+      "configurations": ["Run server.py", "Run AI.py"]
+    }
+  ]
+}
