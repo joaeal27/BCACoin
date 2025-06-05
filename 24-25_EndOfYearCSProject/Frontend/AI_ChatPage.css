@@ -1,20 +1,24 @@
+/* 1) Apply red background only to the page itself */
+body {
+    background-color: rgb(255, 90, 95);
+}
+
+/* 2) Style buttons (white background) */
 button {
     margin-left: 150px;
     border-radius: 30px;
     font-family: "Alumni Sans SC", sans-serif;
     font-size: 35px;
-    background-color: white;
+    background-color: white;   /* stays white on red */
 }
 
-* {
-    background-color: rgb(255, 90, 95);
-}
-
+/* 3) Headings, paragraphs, labels, etc. */
 h1 {
     font-family: "Alumni Sans SC", sans-serif;
     font-size: 4.688rem;
 }
-p{
+
+p {
     font-family: "DM Sans", sans-serif;
     font-size: 1.5rem;
 }
@@ -22,21 +26,31 @@ p{
 label {
     font-family: "DM Sans", sans-serif;
 }
+
+/* 4) Logo positioning */
 .logo {
     position: relative;
     right: 1325px;
     bottom: 375px;
 }
-.name{
+
+/* 5) Inputs and textarea backgrounds */
+.name,
+.age,
+.interests {
     background-color: white;
 }
-.age{
+
+/* 6) “Add User” submit button */
+.submit {
     background-color: white;
+    font-family: "DM Sans", sans-serif;
+    border-radius: 10px;
+    font-size: 50px;
 }
-.interests{
-    background-color: white;
-}
-.submit{
+
+/* 7) “Compute Matches” button */
+#compute-btn {
     background-color: white;
     font-family: "DM Sans", sans-serif;
     border-radius: 10px;

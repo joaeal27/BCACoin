@@ -1,51 +1,178 @@
+<!-- AIChatpage.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="AI_ChatPage.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-    <title>AI Chat</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="AI_ChatPage.css" />
+  <title>AI Chatbot</title>
 </head>
 <body>
-    <div class="home-menu-items">
-        <a href="AI_HomePage.html"><button>Home</button></a>
-        <a href="AI_ChatPage.html"><button>Chatbot!</button></a>
-        <a href="AI_StoriesPage.html"><button>Stories</button></a>
-        <a href="AI_AboutUsPage.html"><button>About Us!</button></a>
-    </div>
-    <h1>AI Chatbot</h1>
-    <p>Enter your repsonses below.</p>
-    <label for="name">Name:</label>
-    <input type="text" name="name" id="name" class="name">
-    <label for="age">Age</label>
-    <input type="text" name="age" id="age" class="age">
-    <label for="intersts">In three words, separated by commas, write your 3 greatest interests.</label>
-    <textarea name="interests" class="interests" id="interests" cols="30" rows="10"></textarea>
-    <input type="submit" class="submit">
-    
-    <img src="logo.png" alt="" width="75px" class="logo">
+  <div class="home-menu-items">
+    <a href="AI_HomePage.html"><button>Home</button></a>
+    <a href="AI_ChatPage.html"><button>Chatbot!</button></a>
+    <a href="AI_StoriesPage.html"><button>Stories</button></a>
+    <a href="AI_AboutUsPage.html"><button>About Us!</button></a>
+  </div>
 
-    <script>
-    document.querySelector("input[type='submit']").addEventListener("click", async () => {
-    const name = document.getElementById("name").value;
-    const age = document.getElementById("age").value;
-    const interests = document.getElementById("interests").value;
+  <h1>AI Chatbot</h1>
+  <p>Enter your responses below.</p>
 
-    const response = await fetch("http://localhost:5000/add_user", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, age, interests })
+  <label for="name">Name:</label>
+  <input type="text" name="name" id="name" class="name" />
+
+  <label for="age">Age:</label>
+  <input type="text" name="age" id="age" class="age" />
+
+  <label for="interests">In three words, separated by commas, write your 3 greatest interests.</label>
+  <textarea name="interests" id="interests" class="interests" cols="30" rows="3"></textarea>
+
+  <!-- SUBMIT USER FORM -->
+  <input type="submit" class="submit" id="submit-user" value="Add User" />
+
+  <!-- COMPUTE MATCHES BUTTON -->
+  <button id="compute-btn">Compute Matches</button>
+
+  <!-- Where we'll render the matches -->
+  <div id="matches-container">
+    <!-- After clicking “Compute Matches,” this div will be filled -->
+  </div>
+
+  <img src="logo.png" alt="Logo" width="75px" class="logo" />
+
+  <script>
+    // Base URL for your Flask API
+    const API_BASE = "http://localhost:5000";
+
+    // ─── Helper: render the matches in HTML ─────────────────────────────────────
+    function renderMatches(matches) {
+      const container = document.getElementById("matches-container");
+      container.innerHTML = ""; // clear any previous results
+
+      if (!matches || matches.length === 0) {
+        container.textContent = "No users or no matches available.";
+        return;
+      }
+
+      // For each person, show their top matches as a nested list
+      matches.forEach((personObj) => {
+        const personDiv = document.createElement("div");
+        personDiv.classList.add("person-block");
+
+        // Person’s name:
+        const heading = document.createElement("h3");
+        heading.textContent = `${personObj.person}'s top matches:`;
+        personDiv.appendChild(heading);
+
+        // If best_matches is empty, say so:
+        if (!personObj.best_matches || personObj.best_matches.length === 0) {
+          const noMatch = document.createElement("p");
+          noMatch.textContent = "(no matches found)";
+          personDiv.appendChild(noMatch);
+        } else {
+          // Otherwise, build a <ul> of each (name — score)
+          const ul = document.createElement("ul");
+          personObj.best_matches.forEach(([otherName, score]) => {
+            const li = document.createElement("li");
+            li.textContent = `${otherName} — Score: ${score.toFixed(2)}`;
+            ul.appendChild(li);
+          });
+          personDiv.appendChild(ul);
+        }
+
+        container.appendChild(personDiv);
+      });
+    }
+
+    // ─── 1) “Add User” button listener ───────────────────────────────────────────
+    document.getElementById("submit-user").addEventListener("click", async () => {
+      const name = document.getElementById("name").value.trim();
+      const age = document.getElementById("age").value.trim();
+      const interests = document.getElementById("interests").value.trim();
+
+      if (!name || !age || !interests) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      try {
+        const resp = await fetch(`${API_BASE}/add_user`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, age, interests }),
+        });
+        const result = await resp.json();
+
+        if (!resp.ok) {
+          alert("Error: " + (result.error || "Unknown error"));
+          return;
+        }
+
+        alert(result.message);
+        // Clear the form fields
+        document.getElementById("name").value = "";
+        document.getElementById("age").value = "";
+        document.getElementById("interests").value = "";
+
+      } catch (err) {
+        console.error("Error adding user:", err);
+        alert("Network error while adding user");
+      }
     });
 
-    const result = await response.json();
-    alert(result.message);
-});
-</script>
+    // ─── 2) “Compute Matches” button listener ────────────────────────────────────
+    document.getElementById("compute-btn").addEventListener("click", async () => {
+      try {
+        const resp = await fetch(`${API_BASE}/matches`);
+        const data = await resp.json();
+        const container = document.getElementById("matches-container");
+        container.innerHTML = ""; // clear any previous content
+
+        if (!resp.ok) {
+          container.textContent = "Error: " + (data.error || "Unknown error");
+          return;
+        }
+
+        // If there are no users, show a message
+        if (!Array.isArray(data) || data.length === 0) {
+          container.textContent = "No users found (add some users first).";
+          return;
+        }
+
+        // Otherwise, build a small block for each person
+        data.forEach((personObj) => {
+          const block = document.createElement("div");
+          block.style.marginBottom = "1em"; // spacing between persons
+
+          // Name header
+          const heading = document.createElement("h4");
+          heading.textContent = `${personObj.person}'s top matches:`;
+          block.appendChild(heading);
+
+          // If best_matches is empty
+          if (!personObj.best_matches || personObj.best_matches.length === 0) {
+            const p = document.createElement("p");
+            p.textContent = "(no matches found)";
+            block.appendChild(p);
+          } else {
+            // Build a <ul> of each (name — score)
+            const ul = document.createElement("ul");
+            personObj.best_matches.forEach(([otherName, score]) => {
+              const li = document.createElement("li");
+              li.textContent = `${otherName} — Score: ${score.toFixed(2)}`;
+              ul.appendChild(li);
+            });
+            block.appendChild(ul);
+          }
+
+          container.appendChild(block);
+        });
+      } catch (err) {
+        console.error("Error fetching matches:", err);
+        document.getElementById("matches-container").textContent =
+          "Network error while fetching matches";
+      }
+    });
+  </script>
 </body>
 </html>
