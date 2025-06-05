@@ -23,7 +23,22 @@ label {
     font-family: "DM Sans", sans-serif;
 }
 .logo {
-    position: relative;
-    right: 1200px;
-    bottom: 375px;
+    position: fixed;
+    right: 1600px;
+    bottom: 850px;
+}
+.name{
+    background-color: white;
+}
+.age{
+    background-color: white;
+}
+.interests{
+    background-color: white;
+}
+.submit{
+    background-color: white;
+    font-family: "DM Sans", sans-serif;
+    border-radius: 10px;
+    font-size: 50px;
 }
