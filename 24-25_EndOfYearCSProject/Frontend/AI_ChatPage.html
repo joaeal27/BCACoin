@@ -3,9 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="AI_ChatPage.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
     <title>AI Chat</title>
 </head>
 <body>
-    <p>Enter your responses down below!</p>    
+    <div class="home-menu-items">
+        <a href="AI_HomePage.html"><button>Home</button></a>
+        <a href="AI_ChatPage.html"><button>Chatbot!</button></a>
+        <a href="AI_StoriesPage.html"><button>Stories</button></a>
+        <a href="AI_AboutUsPage.html"><button>About Us!</button></a>
+    </div>
+    <h1>AI Chatbot</h1>
+    <p>Enter your repsonses below.</p>
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" class="name">
+    <label for="age">Age</label>
+    <input type="text" name="age" id="age" class="age">
+    <label for="intersts">In three words, separated by commas, write your 3 greatest interests.</label>
+    <textarea name="interests" class="interests" id="interests" cols="30" rows="10"></textarea>
+    <input type="submit" class="submit">
+    
+    <img src="logo.png" alt="" width="75px" class="logo">
+
+    <script>
+    document.querySelector("input[type='submit']").addEventListener("click", async () => {
+    const name = document.getElementById("name").value;
+    const age = document.getElementById("age").value;
+    const interests = document.getElementById("interests").value;
+
+    const response = await fetch("http://localhost:5000/add_user", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, age, interests })
+    });
+
+    const result = await response.json();
+    alert(result.message);
+});
+</script>
 </body>
 </html>
