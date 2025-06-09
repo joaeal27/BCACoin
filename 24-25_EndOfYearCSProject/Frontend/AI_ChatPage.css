@@ -36,9 +36,11 @@ label {
 
 /* 4) Logo positioning */
 .logo {
-    position: relative;
-    right: -30px;
-    bottom: 475px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 75px; 
+    margin: 10px;
 }
 
 /* 5) Inputs and textarea backgrounds */
