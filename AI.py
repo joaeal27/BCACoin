@@ -77,7 +77,7 @@ def get_matches() -> List[Dict]:
     return compute_friend_scores(people)
 
 
-# If you ever run AI.py directly, we could print to console (optional)
+# If ever run AI.py directly, print to console
 if __name__ == "__main__":
     matches = get_matches()
     for match in matches:

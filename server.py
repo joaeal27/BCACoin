@@ -3,10 +3,10 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from pymongo import MongoClient
-from AI import get_matches  # import the function we just created
+from AI import get_matches 
 import certifi
 app = Flask(__name__)
-CORS(app)  # permits CORS so your HTML/JS can call this API from localhost
+CORS(app)  # permits CORS so HTML/JS can call this API from localhost
 
 
 # ─── MONGODB CONNECTION ────────────────────────────────────────────────────────
@@ -47,7 +47,7 @@ def add_user():
     except Exception as e:
         return jsonify({"error": f"Failed to insert into DB: {e}"}), 500
 
-    # Return back the updated user list if you want, or just a success message:
+  
     all_users = list(collection.find({}, {"_id": 0}))
     return jsonify({"message": "User added successfully", "users": all_users}), 200
 
@@ -86,5 +86,5 @@ def matches():
 
 # ─── MAIN ──────────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
-    # In production, use debug=False and a proper WSGI server
+ 
     app.run(host="0.0.0.0", port=5000, debug=True)
