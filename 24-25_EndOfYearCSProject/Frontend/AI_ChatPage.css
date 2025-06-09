@@ -23,6 +23,10 @@ p {
     font-size: 1.5rem;
 }
 
+header {
+    background-color: white;
+    height: 100px;
+}
 label {
     font-family: "DM Sans", sans-serif;
 }
@@ -30,8 +34,9 @@ label {
 /* 4) Logo positioning */
 .logo {
     position: relative;
-    right: 1325px;
-    bottom: 375px;
+    right: -30px;
+    bottom: 475px;
+    
 }
 
 /* 5) Inputs and textarea backgrounds */
