@@ -1,6 +1,7 @@
 /* 1) Apply red background only to the page itself */
 body {
     background-color: rgb(255, 199, 196);
+    margin: 0px;
 }
 
 /* 2) Style buttons (white background) */
@@ -36,7 +37,6 @@ label {
     position: relative;
     right: -30px;
     bottom: 475px;
-    
 }
 
 /* 5) Inputs and textarea backgrounds */

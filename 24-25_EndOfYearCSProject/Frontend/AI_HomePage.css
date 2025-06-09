@@ -1,15 +1,20 @@
+body {
+    background-color: rgb(255, 199, 196);
+    margin: 0px;
+}
+
 button {
-    margin-left: 150px;
+    margin-left: 250px;
     border-radius: 30px;
     font-family: "Alumni Sans SC", sans-serif;
     font-size: 35px;
     background-color: white;
 }
 
-* {
-    background-color: rgb(255, 199, 196);
+header {
+    background-color: white;
+    height: 100px;
 }
-
 h1 {
     font-family: "Alumni Sans SC", sans-serif;
     font-size: 4.688rem;
@@ -24,7 +29,7 @@ p{
 }
 .logo {
     position: relative;
-    right: 525px;
-    bottom:600px;
+    right: 620px;
+    bottom:650px;
 }
 
