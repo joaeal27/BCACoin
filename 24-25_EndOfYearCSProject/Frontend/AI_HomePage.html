@@ -30,29 +30,49 @@
         <img src="couple3.webp" alt="Couple 3" class="carousel-image">
         <img src="couple4.webp" alt="Couple 4" class="carousel-image">
         <img src="couple5.webp" alt="Couple 5" class="carousel-image">
+
+        <div class="carousel-overlay">
+            <h1 class="carousel-text">Welcome to MatchAI</h1>
+            <a href="AI_ChatPage.html"><button class="carousel-btn">Find your mAItch</button></a>
+        </div>
+
+        <button class="carousel-nav prev-btn"><</button>
+        <button class="carousel-nav next-btn">></button>
     </div>
 
     <script>
         const images = document.querySelectorAll('.carousel-image');
         let currentIndex = 0;
-      
-        function showNextImage() {
-          // Remove the 'active' class from the current image
-          images[currentIndex].classList.remove('active');
-      
-          // Update the index to the next image
-          currentIndex = (currentIndex + 1) % images.length;
-      
-          // Add the 'active' class to the next image
-          images[currentIndex].classList.add('active');
+    
+        // Function to show the current image
+        function showImage(index) {
+            images.forEach((img, i) => {
+                img.classList.remove('active');
+                if (i === index) {
+                    img.classList.add('active');
+                }
+            });
         }
-      
-        // Initialize the carousel
-        images[currentIndex].classList.add('active');
-      
-        // Change the image every 4 seconds
-        setInterval(showNextImage, 4000);
-      </script>
+    
+        // Show the first image initially
+        showImage(currentIndex);
+    
+        // Handle "Next" button click
+        document.querySelector('.next-btn').addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % images.length; // Loop back to the first image
+            showImage(currentIndex);
+        });
+    
+        // Handle "Previous" button click
+        document.querySelector('.prev-btn').addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length; // Loop back to the last image
+            showImage(currentIndex);
+        });
+    </script>
+
 </div>
 </body>
+<footer>
+    <p>© 2025 MatchAI</p>
+</footer>
 </html>

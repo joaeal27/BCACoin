@@ -1,5 +1,7 @@
 body {
     background-color: rgb(255, 199, 196);
+    flex-direction: column;
+    min-height: 100vh;
     margin: 0px;
 }
 
@@ -45,19 +47,86 @@ p{
 .carousel {
     position: relative;
     width: 100%;
-    height: 400px; /* Adjust height as needed */
+    height: calc(100vh - 100px); /* Subtract the header height (100px) from the viewport height */
     overflow: hidden;
-  }
-  
-  .carousel-image {
+    flex: 1;
+}
+
+.carousel-image {
     position: absolute;
     width: 100%;
-    height: 150%;
+    height: 100%; /* Make the images fill the carousel */
     object-fit: cover;
     opacity: 0;
     transition: opacity 5s ease-in-out;
-  }
-  
-  .carousel-image.active {
+}
+
+.carousel-image.active {
     opacity: 1;
-  }
+}
+
+.carousel-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+}
+
+.carousel-text {
+    font-family: "Alumni Sans SC", sans-serif;
+    font-size: 10rem; /* Adjust size as needed */
+    margin-bottom: 20px;
+}
+
+.carousel-btn {
+    font-family: "DM Sans", sans-serif;
+    font-size: 2rem; /* Make the button large */
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-btn:hover {
+    background-color: rgb(200, 200, 200); /* Add hover effect */
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 10; /* Ensure buttons appear above images */
+}
+
+.prev-btn {
+    left: 20px; /* Position on the left side */
+}
+
+.next-btn {
+    right: 20px; /* Position on the right side */
+}
+
+.carousel-nav:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* Darker background on hover */
+}
+
+.footer {
+    background-color: rgb(255, 199, 196); /* Match the page background or use a custom color */
+    text-align: center;
+    padding: 20px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 1rem;
+    color: black;
+}
