@@ -3,7 +3,7 @@ body {
     margin: 0px;
 }
 
-button {
+.link-btn {
     margin-left: 275px;
     border-radius: 30px;
     font-family: "Alumni Sans SC", sans-serif;
@@ -42,3 +42,22 @@ p{
     margin: 10px;
 }
 
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Adjust height as needed */
+    overflow: hidden;
+  }
+  
+  .carousel-image {
+    position: absolute;
+    width: 100%;
+    height: 150%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 5s ease-in-out;
+  }
+  
+  .carousel-image.active {
+    opacity: 1;
+  }
