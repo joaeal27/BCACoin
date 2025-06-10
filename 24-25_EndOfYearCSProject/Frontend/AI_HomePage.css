@@ -4,11 +4,13 @@ body {
 }
 
 button {
-    margin-left: 250px;
+    margin-left: 275px;
     border-radius: 30px;
     font-family: "Alumni Sans SC", sans-serif;
     font-size: 35px;
     background-color: white;
+    outline: none; /* Removes the black outline */
+    border: none; /* Removes any border if present */
 }
 
 header {
