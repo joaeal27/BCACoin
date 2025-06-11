@@ -59,7 +59,7 @@ h1 {
 }
 
 .story-image {
-    width: 500px; /* Increase image width */
+    width: 400px; /* Increase image width */
     height: auto; /* Maintain aspect ratio */
     margin-left: 50px; /* Remove extra margins */
 }
@@ -67,7 +67,7 @@ h1 {
 .story-text {
     flex: 1; /* Make the text take up the remaining space */
     font-family: "DM Sans", sans-serif;
-    font-size: 1.5rem; /* Adjust font size to be proportional */
+    font-size: 1.6rem; /* Adjust font size to be proportional */
     line-height: 1.8; /* Improve readability */
     margin-right: 40px;
 }
@@ -81,5 +81,6 @@ h1 {
 
 .Title{
     margin-left: 30px;
+    font-size: 3.5rem;
 }
 
