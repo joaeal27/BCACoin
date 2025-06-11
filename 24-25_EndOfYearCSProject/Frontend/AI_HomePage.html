@@ -68,6 +68,12 @@
             currentIndex = (currentIndex - 1 + images.length) % images.length; // Loop back to the last image
             showImage(currentIndex);
         });
+
+        // Automatically scroll to the next image every 4 seconds
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % images.length; // Loop back to the first image
+        showImage(currentIndex);
+    }, 7000); // 4000 milliseconds = 4 seconds
     </script>
 
 </div>
