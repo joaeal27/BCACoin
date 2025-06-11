@@ -47,27 +47,29 @@ h1 {
 */
 
 
-/* Default: image left, text right */
 .story-card {
     display: flex;
     align-items: center;
     margin-bottom: 2rem;
+    gap: 2rem; /* Add spacing between image and text */
 }
 
-/* For right-aligned cards: image right, text left */
 .story-card.right-align {
-    flex-direction: row-reverse;
+    flex-direction: row-reverse; /* For right-aligned cards */
 }
 
-/* Optional: spacing and sizing */
 .story-image {
-    width: 300px;
-    height: auto;
-    margin: 0 2rem;
+    width: 500px; /* Increase image width */
+    height: auto; /* Maintain aspect ratio */
+    margin-left: 50px; /* Remove extra margins */
 }
 
 .story-text {
-    flex: 1;
+    flex: 1; /* Make the text take up the remaining space */
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.5rem; /* Adjust font size to be proportional */
+    line-height: 1.8; /* Improve readability */
+    margin-right: 40px;
 }
 
 .logo {
@@ -77,7 +79,7 @@ h1 {
     margin: 10px;
 }
 
-.title{
-    margin-left: 200px;
+.Title{
+    margin-left: 30px;
 }
 
