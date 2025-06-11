@@ -1,48 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="AI_Stories.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-    <title>Stories</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="AI_ChatPage.css" />
+  <title>AI Chatbot</title>
 </head>
 <body>
-    <header class="home-menu-items">
-        <div class="AI_logo">
-            <a href="AI_HomePage.html"> <img src="logo_transparent.png" alt="" width="75px" class="logo"></a>
-          </div>
-          <div class="links">
-            <a href="AI_ChatPage.html"><button class="link-btn">Chatbot!</button></a>
-            <a href="AI_StoriesPage.html"><button class="link-btn">Stories</button></a>
-            <a href="AI_AboutUsPage.html"><button class="link-btn">About Us!</button></a>
-        </div>
-    </header>
-    <h1 class="Title">Stories</h1>
-    
-    <!-- keep a container for all stories on the page -->
-    <!-- create individual cards(divs) for each story -->
-    <div class="story-container">
-        <div class="story-card">
-            <img src="Stories_couple4.png" class="story-image">
-            <p class="story-text">Liam, a software engineer from Seattle, and Isabella, a classically trained cellist from Boston, both signed up for MatchAI not expecting much. But the AI saw what they didn’t: their shared love for complexity, quiet mornings, and Rachmaninoff. After three weeks of chatting and one spontaneous meetup in Chicago, they realized the algorithm had seen into their souls. Two years later, they played a duet — code and cello — at their wedding.</p>
-        </div>
-
-        <div class="story-card right-align">
-            <img src="Stories_couples2.png" class="story-image">
-            <p class="story-text" id="right-align">Theo, a Brooklyn barista with a love of slam poetry, wasn’t expecting much from MatchAI. But then he matched with Julian, a PhD student studying 19th-century literature in Chicago. The AI had picked up on their mutual love of verse, emotional vulnerability, and 2 a.m. existential questions. After exchanging audio poems for weeks, they finally met. Their first date was in a used bookstore — and they never stopped writing together.</p>
-        </div>
-
+  <header class="home-menu-items">
+    <div class="AI_logo">
+      <a href="AI_HomePage.html"><img src="logo_transparent.png" alt="Logo" width="75px" class="logo"></a>
     </div>
-    <p class="story-text" id="left-align">After years of ghosting, mismatches, and meaningless banter on dating apps, Jenna, a nurse in Atlanta, gave MatchAI a try. The AI recommended Marcus, a high school history teacher, based on compatibility patterns like moral values, humor styles, and communication habits. They never stopped talking after their first date. “It wasn’t flashy,” Jenna said, “it was just right.”</p>
-    <p class="story-text" id="right-align">Yuki, a Japanese UX designer living in San Francisco, and Diego, a Colombian entrepreneur in Miami, matched on MatchAI despite speaking different native languages. The AI prioritized emotional expression and values over language preferences, and even recommended shared bilingual learning tools. A year later, they’re engaged — and speaking fluent Spanglish-Japanese-English love.</p>
-    <p class="story-text" id="left-align">MatchAI matched Tara, a high-powered corporate lawyer, with Ben, a full-time wildlife photographer. She wore heels; he wore hiking boots. But the AI picked up on their mutual independence, love of deep conversation, and appreciation for solitude. Now, they alternate between courtrooms and jungles, and wouldn’t have it any other way.</p>
-    <p class="story-text" id="right-align">Both Carol and Frank had lost their spouses years ago and joined MatchAI out of curiosity. The AI gently paired them based on grief journey stages, humor preferences, and attachment styles. They bonded over shared loss — and the joy of rediscovery. Now, they host a podcast for seniors looking for love again.</p>
-    <p class="story-text" id="left-align">MatchAI matched Mina, a med student in New York, and Arjun, a graphic designer in London. Most apps would’ve filtered them out due to distance, but MatchAI prioritized long-term goal alignment and communication resilience. They dated long-distance for 18 months before Mina moved to the UK. Their motto? “Distance doesn’t scare us — bad Wi-Fi does.”</p>
+    <div class="links">
+      <a href="AI_ChatPage.html"><button>Chatbot!</button></a>
+      <a href="AI_StoriesPage.html"><button>Stories</button></a>
+      <a href="AI_AboutUsPage.html"><button>About Us!</button></a>
+    </div>
+  </header>
+
+  <main>
+    <h1>AI Chatbot</h1>
+    <p>Enter your responses below.</p>
+
+    <form id="user-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" required />
+
+      <label for="interests">Interests (comma-separated):</label>
+      <textarea id="interests" name="interests" rows="2" required></textarea>
+
+      <button type="button" id="submit-user">Add User</button>
+    </form>
+
+    <button id="compute-btn" type="button">Calculate Matches</button>
+    <div id="matches-container"></div>
+  </main>
+
+  <script>
+    const API_BASE = "http://localhost:5000";
+
+    // Add user via backend
+    document.getElementById('submit-user').addEventListener('click', async () => {
+      const name = document.getElementById('name').value.trim();
+      const age = document.getElementById('age').value.trim();
+      const interests = document.getElementById('interests').value.trim();
+      if (!name || !age || !interests) return alert('Fill all fields');
+
+      try {
+        const res = await fetch(`${API_BASE}/add_user`, {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, age, interests })
+        });
+        const data = await res.json();
+        if (!res.ok) return alert(data.error || 'Add user failed');
+        alert(data.message);
+        document.getElementById('user-form').reset();
+      } catch (e) { alert('Network error'); }
+    });
+
+    // Render a <select> dropdown per user
+    function renderMatches(matches) {
+      const container = document.getElementById('matches-container');
+      container.innerHTML = '';
+      if (!matches || !matches.length) return container.textContent = 'No matches available.';
+
+      matches.forEach(person => {
+        // Label
+        const label = document.createElement('label');
+        label.textContent = `Matches for ${person.person} (${person.age}):`;
+        label.htmlFor = `select-${person.person}`;
+        container.appendChild(label);
+
+        // Dropdown
+        const select = document.createElement('select');
+        select.id = `select-${person.person}`;
+        select.name = `select-${person.person}`;
+        const defaultOpt = document.createElement('option');
+        defaultOpt.textContent = 'Choose...'; defaultOpt.value = '';
+        defaultOpt.disabled = true; defaultOpt.selected = true;
+        select.appendChild(defaultOpt);
+
+        if (person.best_matches && person.best_matches.length) {
+          person.best_matches.forEach(([name, score]) => {
+            const opt = document.createElement('option');
+            opt.value = name;
+            opt.textContent = `${name} (score: ${score.toFixed(2)})`;
+            select.appendChild(opt);
+          });
+        } else {
+          const opt = document.createElement('option');
+          opt.textContent = '(no matches)'; opt.disabled = true;
+          select.appendChild(opt);
+        }
+        container.appendChild(select);
+      });
+    }
+
+    // Compute and display
+    document.getElementById('compute-btn').addEventListener('click', async () => {
+      try {
+        const res = await fetch(`${API_BASE}/matches`);
+        const data = await res.json();
+        if (!res.ok) return alert(data.error || 'Fetch failed');
+        renderMatches(data);
+      } catch (e) {
+        alert('Network error fetching matches');
+      }
+    });
+  </script>
 </body>
 </html>
