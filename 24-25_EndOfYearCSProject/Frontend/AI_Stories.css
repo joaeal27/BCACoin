@@ -42,9 +42,36 @@ h1 {
     font-family: "DM Sans", sans-serif;
     font-size: 1.5rem;
 }
+
+/*
 .story-text{
     font-family: "DM Sans", sans-serif;
     font-size: 1rem;
+}
+*/
+
+
+/* Default: image left, text right */
+.story-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+/* For right-aligned cards: image right, text left */
+.story-card.right-align {
+    flex-direction: row-reverse;
+}
+
+/* Optional: spacing and sizing */
+.story-image {
+    width: 300px;
+    height: auto;
+    margin: 0 2rem;
+}
+
+.story-text {
+    flex: 1;
 }
 
 .logo {
@@ -53,3 +80,8 @@ h1 {
     width: 75px; 
     margin: 10px;
 }
+
+.title{
+    margin-left: 200px;
+}
+
