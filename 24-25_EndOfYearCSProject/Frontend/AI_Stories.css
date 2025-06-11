@@ -37,9 +37,14 @@ h1 {
     font-family: "DM Sans", sans-serif;
     font-size: 4.688rem;
 }
-p{
+
+.story-hdr {
     font-family: "DM Sans", sans-serif;
     font-size: 1.5rem;
+}
+.story-text{
+    font-family: "DM Sans", sans-serif;
+    font-size: 1rem;
 }
 
 .logo {
