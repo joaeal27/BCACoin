@@ -5,6 +5,13 @@ body {
     margin: 0px;
 }
 
+header {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    height: 100px;
+}
+
 .link-btn {
     margin-left: 275px;
     border-radius: 30px;
@@ -13,13 +20,6 @@ body {
     background-color: white;
     outline: none; /* Removes the black outline */
     border: none; /* Removes any border if present */
-}
-
-header {
-    background-color: white;
-    display: flex;
-    align-items: center;
-    height: 100px;
 }
 
 h1 {
