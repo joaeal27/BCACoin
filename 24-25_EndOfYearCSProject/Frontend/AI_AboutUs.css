@@ -1,12 +1,10 @@
-button {
-    margin-left: 275px;
-    border-radius: 30px;
-    font-family: "DM Sans", sans-serif;
-    font-size: 35px;
-    background-color: white;
-    outline: none; /* Removes the black outline */
-    border: none; /* Removes any border if present */;
+body {
+    margin: 0px;
+    background-color: rgb(255, 199, 196);
+    flex-direction: column;
+    min-height: 100vh;
 }
+
 header {
     background-color: white;
     display: flex;
@@ -14,18 +12,38 @@ header {
     height: 100px;
 }
 
-body {
-    margin: 0px;
-    background-color: rgb(255, 199, 196);
+p{
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.875rem;
 }
+
+
+.link-btn {
+    margin-left: 2vw;
+    border-radius: 1em;
+    font-family: "DM Sans", sans-serif;
+    font-size: 35px;
+    background-color: transparent;
+    padding: 0.3em 5.5em;
+    outline: none; /* Removes the black outline */
+    border: none; /* Removes any border if present */
+}
+
+
+button {
+    margin-left: 275px;
+    border-radius: 30px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 35px;
+    background-color: white;
+    outline: none; /* Removes the black outline */
+    border: none; /* Removes any border if present */
+}
+
 
 h1 {
     font-family: "DM Sans", sans-serif;
     font-size: 4.688rem;
-}
-p{
-    font-family: "DM Sans", sans-serif;
-    font-size: 1.5rem;
 }
 
 .logo {
@@ -33,4 +51,10 @@ p{
     left: 0px;
     width: 75px; 
     margin: 10px;
+}
+
+
+.Title{
+    margin-left: 25px;
+    font-size: 3.5rem;
 }
