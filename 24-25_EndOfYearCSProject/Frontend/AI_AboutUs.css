@@ -1,24 +1,9 @@
-body {
-    margin: 0px;
-    background-color: rgb(255, 199, 196);
-    flex-direction: column;
-    min-height: 100vh;
-}
-
 header {
     background-color: white;
     display: flex;
     align-items: center;
     height: 100px;
 }
-
-p{
-    font-family: "DM Sans", sans-serif;
-    font-size: 1.875rem;
-    margin: 0 20px; /* Adds spacing on the left and right edges */
-    line-height: 1.8; /* Improves readability */
-}
-
 
 .link-btn {
     margin-left: 2vw;
@@ -42,18 +27,6 @@ button {
     border: none; /* Removes any border if present */
 }
 
-
-h1 {
-    font-family: "DM Sans", sans-serif;
-    font-size: 4.688rem;
-}
-
-h2 {
-    font-family: "DM Sans", sans-serif;
-    font-size: 1.2rem;
-    margin: 100px 20px 20px;
-}
-
 .logo {
     left: 0px;
     width: 75px; 
@@ -62,25 +35,150 @@ h2 {
     top: 2%;
 }
 
+body {
+    margin: 0px;
+    background-color: rgb(255, 199, 196);
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+p{
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.875rem;
+    margin: 0 20px; /* Adds spacing on the left and right edges */
+    line-height: 1.8; /* Improves readability */
+}
+
+
+
+h1 {
+    font-family: "DM Sans", sans-serif;
+    font-size: 3.5rem;
+    margin: 0;
+}
+
+h2 {
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.2rem;
+    margin: 100px 20px 20px;
+}
+
+.text-container {
+    position: relative;
+    color: black; /* Or any color that stands out on the image */
+    padding: 20px;
+    margin-top: 0;
+}
+
 
 .bkg-img{
     position: relative;
     width: 100%;
-    height: calc(100vh - 20px); /* Subtract the header height (100px) from the viewport height */
+    height: 50vh;
+    /* height: calc(100vh - 20px); Subtract the header height (100px) from the viewport height */
     overflow: hidden;
     flex: 1;
+    z-index: 0;
+    margin-bottom: 0;
+}
+
+.bkg-title{
+    font-family: "DM Sans", sans-serif;
+    font-size: 5rem; /* Adjust size as needed */
+    margin-bottom: 20px;
+}
+
+.bkt-txt{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    color: white;
 }
 
 .group {
-    position: absolute;
     width: 100%;
     height: 60%; /* Make the images fill the carousel */
     object-fit: cover;
+    display: block;
+    z-index: 0;
 }
 
 .Title{
     font-family: "DM Sans", sans-serif;
-    margin: 0 25px; /* Adds spacing on the left and right edges */
+    margin: 25px; /* Adds spacing on the left and right edges */
     font-size: 3.5rem;
     text-align: center;
+}
+
+.team-row {
+  display: flex;
+  justify-content: space-around; /* or space-between, or center */
+  align-items: center;
+  margin: 40px 0;
+  flex-wrap: wrap; /* Allows wrap on small screens */
+  gap: 20px;
+}
+
+.team-member {
+  text-align: center;
+  max-width: 200px;
+  top: -200px;
+}
+
+.team-member img {
+  width: 100%;
+  height: auto;
+  border-radius: 100px; /* Optional: rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: light shadow */
+}
+
+.team-member p {
+  font-family: "DM Sans", sans-serif;
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.image-carousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 100px; /* Adjust height as needed */
+  background-color: rgb(255, 199, 196); /* Or any background */
+}
+
+.image-track {
+  display: flex;
+  width: fit-content; /* To fit all images (twice to loop) */
+  animation: scroll-left 20s linear infinite;
+}
+
+.image-track img {
+  width: 25vw;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+/* Animation keyframes */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.footer {
+    background-color: rgb(255, 199, 196); /* Match the page background or use a custom color */
+    padding: 20px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 1rem;
+    color: black;
+}
+.credit {
+    text-align: center;
+    font-size: 1.0rem;
 }

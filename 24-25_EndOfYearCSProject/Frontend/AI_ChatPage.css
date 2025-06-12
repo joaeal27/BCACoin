@@ -4,13 +4,27 @@ body {
     margin: 0px;
 }
 
-/* 2) Style buttons (white background) */
 button {
     margin-left: 275px;
     border-radius: 30px;
     font-family: "DM Sans", sans-serif;
     font-size: 35px;
     background-color: white;
+    outline: none; /* Removes the black outline */
+    border: none; /* Removes any border if present */
+}
+
+.links{
+    margin-left:0;
+}
+
+.link-btn {
+    margin-left: 2vw;
+    border-radius: 1em;
+    font-family: "DM Sans", sans-serif;
+    font-size: 35px;
+    background-color: white;
+    padding: 0.3em 5.5em;
     outline: none; /* Removes the black outline */
     border: none; /* Removes any border if present */
 }
