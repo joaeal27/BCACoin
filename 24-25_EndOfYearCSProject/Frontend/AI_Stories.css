@@ -12,6 +12,12 @@ header {
     height: 100px;
 }
 
+p{
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.875rem;
+}
+
+
 .link-btn {
     margin-left: 2vw;
     border-radius: 1em;
@@ -35,19 +41,10 @@ button {
 }
 
 
-
 h1 {
     font-family: "DM Sans", sans-serif;
     font-size: 4.688rem;
 }
-
-
-/*
-.story-text{
-    font-family: "DM Sans", sans-serif;
-    font-size: 1rem;
-}
-*/
 
 
 .story-card {
@@ -60,12 +57,18 @@ h1 {
 
 .story-card.right-align {
     flex-direction: row-reverse; /* For right-aligned cards */
+    margin-right: 50px;
+    text-align: left
 }
 
 .story-image {
     width: 400px; /* Increase image width */
     height: auto; /* Maintain aspect ratio */
-    margin: 0 20px; /* Add margin to prevent image from touching edges */
+    margin-left: 50px; /* margin for left side of page */
+}
+
+.story-image.right-align{
+    margin-left: 0;
 }
 
 .story-text {
@@ -76,6 +79,23 @@ h1 {
     margin: 0 20px; /* Add margin to prevent text from touching edges */
 }
 
+.story-text.right-align {
+    margin-left: 50px; /* Remove right margin for right-aligned cards */
+    margin-right: 0;
+}
+
+.footer {
+    background-color: rgb(255, 199, 196); /* Match the page background or use a custom color */
+    padding: 20px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 1rem;
+    color: black;
+}
+.credit {
+    text-align: center;
+    font-size: 1.0rem;
+}
+
 .logo {
     top: 0px;
     left: 0px;
@@ -84,7 +104,7 @@ h1 {
 }
 
 .Title{
-    margin-left: 30px;
+    margin-left: 25px;
     font-size: 3.5rem;
 }
 
