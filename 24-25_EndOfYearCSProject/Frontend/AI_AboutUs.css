@@ -34,3 +34,13 @@ p{
     width: 75px; 
     margin: 10px;
 }
+
+.group {
+    display: flex; /* Enables flexbox for centering */
+    width: 550px;
+    height: auto;
+    border-radius: 10px;
+    justify-content: center; /* Centers the image horizontally */
+    align-items: center; /* Centers the image vertically */
+    margin: 20px auto; /* Adds spacing and centers the image */
+}
