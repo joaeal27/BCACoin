@@ -1,40 +1,4 @@
-header {
-    background-color: white;
-    display: flex;
-    align-items: center;
-    height: 100px;
-}
-
-.link-btn {
-    margin-left: 2vw;
-    border-radius: 1em;
-    font-family: "DM Sans", sans-serif;
-    font-size: 35px;
-    background-color: transparent;
-    padding: 0.3em 5.5em;
-    outline: none; /* Removes the black outline */
-    border: none; /* Removes any border if present */
-}
-
-
-button {
-    margin-left: 275px;
-    border-radius: 30px;
-    font-family: "DM Sans", sans-serif;
-    font-size: 35px;
-    background-color: white;
-    outline: none; /* Removes the black outline */
-    border: none; /* Removes any border if present */
-}
-
-.logo {
-    left: 0px;
-    width: 75px; 
-    margin: 10px;
-    margin-left: 20%;
-    top: 2%;
-}
-
+/* === Global Body === */
 body {
     margin: 0px;
     background-color: rgb(255, 199, 196);
@@ -42,15 +6,60 @@ body {
     min-height: 100vh;
 }
 
-p{
-    font-family: "DM Sans", sans-serif;
-    font-size: 1.875rem;
-    margin: 0 20px; /* Adds spacing on the left and right edges */
-    line-height: 1.8; /* Improves readability */
+/* === Header === */
+header {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    padding: 0 2rem;
 }
 
+/* === Logo Container === */
+.AI_logo {
+    display: flex;
+    align-items: center;
+}
 
+.logo {
+    width: 75px;
+    margin: 10px 0;
+}
 
+/* === Header Navigation Buttons === */
+.links {
+    display: flex;
+    gap: 1rem;
+}
+
+.link-btn {
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.5rem;
+    background-color: white;
+    padding: 0.5em 1.5em;
+    border: none;
+    border-radius: 1em;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.link-btn:hover {
+    opacity: 0.8;
+}
+
+/* === Main Content === */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 2em;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* === Typography === */
 h1 {
     font-family: "DM Sans", sans-serif;
     font-size: 3.5rem;
@@ -63,121 +72,165 @@ h2 {
     margin: 100px 20px 20px;
 }
 
-.text-container {
-    position: relative;
-    color: black; /* Or any color that stands out on the image */
-    padding: 20px;
-    margin-top: 0;
+p {
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.875rem;
+    margin: 0 20px;
+    line-height: 1.8;
 }
 
+label {
+    font-family: "DM Sans", sans-serif;
+}
 
-.bkg-img{
+/* === Form Fields === */
+.name,
+.age,
+.interests {
+    background-color: white;
+}
+
+/* === Buttons === */
+button,
+.link-btn {
+    font-family: "DM Sans", sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+button:hover,
+.link-btn:hover {
+    opacity: 0.8;
+}
+
+.submit,
+#compute-btn {
+    font-size: 50px;
+}
+
+/* === Match Cards === */
+.match-card {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 12px;
+    margin: 1rem auto;
+    max-width: 600px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* === Background Image Banner === */
+.bkg-img {
     position: relative;
     width: 100%;
     height: 50vh;
-    /* height: calc(100vh - 20px); Subtract the header height (100px) from the viewport height */
     overflow: hidden;
     flex: 1;
     z-index: 0;
     margin-bottom: 0;
 }
 
-.bkg-title{
-    font-family: "DM Sans", sans-serif;
-    font-size: 5rem; /* Adjust size as needed */
-    margin-bottom: 20px;
-}
-
-.bkt-txt{
+.bkt-txt {
     position: absolute;
     top: 50%;
     left: 50%;
     text-align: center;
     color: white;
+    transform: translate(-50%, -50%);
 }
 
-.group {
-    width: 100%;
-    height: 60%; /* Make the images fill the carousel */
-    object-fit: cover;
-    display: block;
-    z-index: 0;
-}
-
-.Title{
+.bkg-title {
     font-family: "DM Sans", sans-serif;
-    margin: 25px; /* Adds spacing on the left and right edges */
+    font-size: 5rem;
+    margin-bottom: 20px;
+}
+
+.text-container {
+    position: relative;
+    color: black;
+    padding: 20px;
+    margin-top: 0;
+}
+
+/* === Team Section === */
+.Title {
+    font-family: "DM Sans", sans-serif;
+    margin: 25px;
     font-size: 3.5rem;
     text-align: center;
 }
 
 .team-row {
-  display: flex;
-  justify-content: space-around; /* or space-between, or center */
-  align-items: center;
-  margin: 40px 0;
-  flex-wrap: wrap; /* Allows wrap on small screens */
-  gap: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 40px 0;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .team-member {
-  text-align: center;
-  max-width: 200px;
-  top: -200px;
+    text-align: center;
+    max-width: 200px;
+    top: -200px;
 }
 
 .team-member img {
-  width: 100%;
-  height: auto;
-  border-radius: 100px; /* Optional: rounded corners */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: light shadow */
+    width: 100%;
+    height: auto;
+    border-radius: 100px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .team-member p {
-  font-family: "DM Sans", sans-serif;
-  font-size: 1.2rem;
-  margin-top: 10px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.2rem;
+    margin-top: 10px;
 }
 
+/* === Image Carousel === */
 .image-carousel {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  height: 100px; /* Adjust height as needed */
-  background-color: rgb(255, 199, 196); /* Or any background */
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 100px;
+    background-color: rgb(255, 199, 196);
 }
 
 .image-track {
-  display: flex;
-  width: fit-content; /* To fit all images (twice to loop) */
-  animation: scroll-left 20s linear infinite;
+    display: flex;
+    width: fit-content;
+    animation: scroll-left 20s linear infinite;
 }
 
 .image-track img {
-  width: 25vw;
-  height: 100%;
-  flex-shrink: 0;
-  object-fit: cover;
-  margin-right: 20px;
+    width: 25vw;
+    height: 100%;
+    flex-shrink: 0;
+    object-fit: cover;
+    margin-right: 20px;
 }
 
-/* Animation keyframes */
 @keyframes scroll-left {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
+/* === Footer === */
 .footer {
-    background-color: rgb(255, 199, 196); /* Match the page background or use a custom color */
+    background-color: rgb(255, 199, 196);
     padding: 20px;
     font-family: "DM Sans", sans-serif;
     font-size: 1rem;
     color: black;
 }
+
 .credit {
     text-align: center;
     font-size: 1.0rem;

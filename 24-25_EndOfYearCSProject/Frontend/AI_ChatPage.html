@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="AI_ChatPage.css" />
-  <title>AI Chatbot</title>
+  <title>AI Matchmaker</title>
 </head>
 <body>
   <header class="home-menu-items">
@@ -19,7 +19,7 @@
     </header>
 
   <main>
-    <h1>AI Chatbot</h1>
+    <h1>AI Matchmaker</h1>
     <p>Enter your responses below.</p>
 
     <form id="user-form">
@@ -67,6 +67,7 @@
 
       matches.forEach(person => {
         const wrapper = document.createElement('div');
+        wrapper.className = "match-card";
         wrapper.style.marginLeft = '275px';
         wrapper.style.marginBottom = '20px';
 

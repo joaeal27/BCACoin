@@ -1,3 +1,4 @@
+/* === Global Body === */
 body {
     margin: 0px;
     background-color: rgb(255, 199, 196);
@@ -5,108 +6,130 @@ body {
     min-height: 100vh;
 }
 
+/* === Header === */
 header {
     background-color: white;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     height: 100px;
+    padding: 0 2rem;
 }
 
-p{
-    font-family: "DM Sans", sans-serif;
-    font-size: 1.875rem;
+/* === Logo Container === */
+.AI_logo {
+    display: flex;
+    align-items: center;
 }
 
+.logo {
+    width: 75px;
+    margin: 10px 0;
+}
+
+/* === Header Navigation Buttons === */
+.links {
+    display: flex;
+    gap: 1rem;
+}
 
 .link-btn {
-    margin-left: 2vw;
-    border-radius: 1em;
     font-family: "DM Sans", sans-serif;
-    font-size: 35px;
-    background-color: transparent;
-    padding: 0.3em 5.5em;
-    outline: none; /* Removes the black outline */
-    border: none; /* Removes any border if present */
-}
-
-
-button {
-    margin-left: 275px;
-    border-radius: 30px;
-    font-family: "DM Sans", sans-serif;
-    font-size: 35px;
+    font-size: 1.5rem;
     background-color: white;
-    outline: none; /* Removes the black outline */
-    border: none; /* Removes any border if present */
+    padding: 0.5em 1.5em;
+    border: none;
+    border-radius: 1em;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    cursor: pointer;
 }
 
+.link-btn:hover {
+    opacity: 0.8;
+}
 
+/* === Typography === */
 h1 {
     font-family: "DM Sans", sans-serif;
     font-size: 4.688rem;
 }
 
+p {
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.875rem;
+}
 
+.Title {
+    margin-left: 25px;
+    font-size: 3.5rem;
+    font-family: "DM Sans", sans-serif;
+}
+
+/* === Buttons (If used elsewhere) === */
+button {
+    font-family: "DM Sans", sans-serif;
+    font-size: 35px;
+    background-color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* === Story Section === */
 .story-card {
     display: flex;
     align-items: center;
     margin-bottom: 2rem;
-    gap: 2rem; /* Add spacing between image and text */
-    padding: 0 20px; /* Add padding to prevent content from touching edges */
+    gap: 2rem;
+    padding: 0 20px;
 }
 
 .story-card.right-align {
-    flex-direction: row-reverse; /* For right-aligned cards */
+    flex-direction: row-reverse;
     margin-right: 50px;
-    text-align: left
+    text-align: left;
 }
 
 .story-image {
-    width: 400px; /* Increase image width */
-    height: auto; /* Maintain aspect ratio */
-    margin-left: 50px; /* margin for left side of page */
+    width: 400px;
+    height: auto;
+    margin-left: 50px;
     border-radius: 10px;
 }
 
-.story-image.right-align{
+.story-image.right-align {
     margin-left: 0;
 }
 
 .story-text {
-    flex: 1; /* Make the text take up the remaining space */
+    flex: 1;
     font-family: "DM Sans", sans-serif;
-    font-size: 1.6rem; /* Adjust font size to be proportional */
-    line-height: 1.8; /* Improve readability */
-    margin: 0 20px; /* Add margin to prevent text from touching edges */
+    font-size: 1.6rem;
+    line-height: 1.8;
+    margin: 0 20px;
 }
 
 .story-text.right-align {
-    margin-left: 50px; /* Remove right margin for right-aligned cards */
+    margin-left: 50px;
     margin-right: 0;
 }
 
+/* === Footer === */
 .footer {
-    background-color: rgb(255, 199, 196); /* Match the page background or use a custom color */
+    background-color: rgb(255, 199, 196);
     padding: 20px;
     font-family: "DM Sans", sans-serif;
     font-size: 1rem;
     color: black;
 }
+
 .credit {
     text-align: center;
-    font-size: 1.0rem;
+    font-size: 1rem;
 }
-
-.logo {
-    left: 0px;
-    width: 75px; 
-    margin: 10px;
-    margin-left: 20%;
-    top: 2%;
-}
-
-.Title{
-    margin-left: 25px;
-    font-size: 3.5rem;
-}
-

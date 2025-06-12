@@ -1,83 +1,118 @@
-/* 1) Apply red background only to the page itself */
+/* === Base === */
 body {
-    background-color: rgb(255, 199, 196);
     margin: 0px;
-}
-
-button {
-    margin-left: 275px;
-    border-radius: 30px;
+    background-color: rgb(255, 199, 196);
     font-family: "DM Sans", sans-serif;
-    font-size: 35px;
-    background-color: white;
-    outline: none; /* Removes the black outline */
-    border: none; /* Removes any border if present */
 }
 
-.links{
-    margin-left:0;
-}
-
-.link-btn {
-    margin-left: 2vw;
-    border-radius: 1em;
-    font-family: "DM Sans", sans-serif;
-    font-size: 35px;
-    background-color: white;
-    padding: 0.3em 5.5em;
-    outline: none; /* Removes the black outline */
-    border: none; /* Removes any border if present */
-}
-
-/* 3) Headings, paragraphs, labels, etc. */
-h1 {
-    font-family: "Alumni Sans SC", sans-serif;
-    font-size: 4.688rem;
-}
-
-p {
-    font-family: "DM Sans", sans-serif;
-    font-size: 1.5rem;
-}
-
+/* === Header === */
 header {
     background-color: white;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     height: 100px;
-}
-label {
-    font-family: "DM Sans", sans-serif;
+    padding: 0 2rem;
 }
 
-/* 4) Logo positioning */
+.AI_logo {
+    display: flex;
+    align-items: center;
+}
+
 .logo {
-    left: 0px;
-    width: 75px; 
-    margin: 10px;
-    margin-left: 20%;
-    top: 2%;
+    width: 75px;
+    margin: 10px 0;
 }
 
-/* 5) Inputs and textarea backgrounds */
-.name,
-.age,
-.interests {
-    background-color: white;
+/* === Navigation Buttons === */
+.links {
+    display: flex;
+    gap: 1rem;
 }
 
-/* 6) “Add User” submit button */
-.submit {
-    background-color: white;
+.link-btn {
     font-family: "DM Sans", sans-serif;
-    border-radius: 10px;
-    font-size: 50px;
+    font-size: 1.5rem;
+    background-color: white;
+    padding: 0.5em 1.5em;
+    border: none;
+    border-radius: 1em;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    cursor: pointer;
 }
 
-/* 7) “Compute Matches” button */
+.link-btn:hover {
+    opacity: 0.8;
+}
+
+/* === Main Content === */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 2em;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-family: "Alumni Sans SC", sans-serif;
+    font-size: 3.5rem;
+    margin-top: 0;
+}
+
+p {
+    font-size: 1.875rem;
+    line-height: 1.6;
+}
+
+label {
+    font-size: 1.2rem;
+}
+
+/* === Form Fields === */
+input,
+textarea {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: "DM Sans", sans-serif;
+}
+
+/* === Buttons === */
+button {
+    border-radius: 1em;
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.25rem;
+    background-color: white;
+    outline: none;
+    border: none;
+    padding: 0.5em 1.5em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Special Button Styling */
 #compute-btn {
-    background-color: white;
-    font-family: "DM Sans", sans-serif;
-    border-radius: 10px;
-    font-size: 50px;
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.match-card {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 12px;
+    margin: 1rem auto;
+    max-width: 600px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
 }
