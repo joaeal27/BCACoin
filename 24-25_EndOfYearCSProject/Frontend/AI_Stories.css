@@ -65,6 +65,7 @@ h1 {
     width: 400px; /* Increase image width */
     height: auto; /* Maintain aspect ratio */
     margin-left: 50px; /* margin for left side of page */
+    border-radius: 10px;
 }
 
 .story-image.right-align{
@@ -97,10 +98,11 @@ h1 {
 }
 
 .logo {
-    top: 0px;
     left: 0px;
     width: 75px; 
     margin: 10px;
+    margin-left: 20%;
+    top: 2%;
 }
 
 .Title{

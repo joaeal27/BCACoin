@@ -38,10 +38,11 @@ label {
 
 /* 4) Logo positioning */
 .logo {
-    top: 0px;
     left: 0px;
     width: 75px; 
     margin: 10px;
+    margin-left: 20%;
+    top: 2%;
 }
 
 /* 5) Inputs and textarea backgrounds */
