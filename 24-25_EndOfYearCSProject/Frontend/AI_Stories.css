@@ -55,6 +55,7 @@ h1 {
     align-items: center;
     margin-bottom: 2rem;
     gap: 2rem; /* Add spacing between image and text */
+    padding: 0 20px; /* Add padding to prevent content from touching edges */
 }
 
 .story-card.right-align {
@@ -64,7 +65,7 @@ h1 {
 .story-image {
     width: 400px; /* Increase image width */
     height: auto; /* Maintain aspect ratio */
-    margin-left: 50px; /* Remove extra margins */
+    margin: 0 20px; /* Add margin to prevent image from touching edges */
 }
 
 .story-text {
@@ -72,7 +73,7 @@ h1 {
     font-family: "DM Sans", sans-serif;
     font-size: 1.6rem; /* Adjust font size to be proportional */
     line-height: 1.8; /* Improve readability */
-    margin-right: 40px;
+    margin: 0 20px; /* Add margin to prevent text from touching edges */
 }
 
 .logo {
