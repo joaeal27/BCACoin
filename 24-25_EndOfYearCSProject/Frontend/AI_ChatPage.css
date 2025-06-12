@@ -31,6 +31,7 @@ header {
     gap: 1rem;
 }
 
+
 .link-btn {
     font-family: "DM Sans", sans-serif;
     font-size: 1.5rem;
@@ -58,7 +59,7 @@ main {
 }
 
 h1 {
-    font-family: "Alumni Sans SC", sans-serif;
+    font-family: "DM Sans", sans-serif;
     font-size: 3.5rem;
     margin-top: 0;
 }
